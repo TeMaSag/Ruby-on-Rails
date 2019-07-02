@@ -1,0 +1,20 @@
+<%= form_with scope: :library, url: libraries_path, local: true do |form| %>
+  <p>
+    <%= form.label :number%><br>
+    <%= form.text_field :number %>
+  </p>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+
+  <p>
+    <%= form.label :adress %><br>
+    <%= form.text_area :adress %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
