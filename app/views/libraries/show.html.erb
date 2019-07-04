@@ -1,14 +1,18 @@
 <p>
-  <strong>number:</strong>
-  <%= @library.number%>
+  <strong>Number:</strong>
+  <%= @library.number %>
 </p>
 
 <p>
-  <strong>name:</strong>
+  <strong>Name:</strong>
   <%= @library.name %>
 </p>
 
 <p>
-  <strong>adress:</strong>
+  <strong>Adress:</strong>
   <%= @library.adress %>
 </p>
+
+
+<%= link_to 'Edit', edit_library_path(@library) %> |
+<%= link_to 'Back', libraries_path %>

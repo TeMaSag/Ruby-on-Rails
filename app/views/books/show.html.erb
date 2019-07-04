@@ -1,0 +1,34 @@
+<p>
+  <strong>Библиотека:</strong>
+  <%= @book.Library %>
+</p>
+
+<p>
+  <strong>Название книги:</strong>
+  <%= @book.TitleOfTheBook %>
+</p>
+
+<p>
+  <strong>Автор:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Шифр:</strong>
+  <%= @book.cipher %>
+</p>
+<p>
+  <strong>Издательство:</strong>
+  <%= @book.publishing_house %>
+</p>
+<p>
+  <strong>Цена:</strong>
+  <%= @book.price %>
+</p>
+<p>
+  <strong>receipt_date:</strong>
+  <%= @book.receipt_date %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
