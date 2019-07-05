@@ -1,7 +1,7 @@
 class CreateLibraries < ActiveRecord::Migration[5.2]
   def change
     create_table :libraries do |t|
-      t.string :number, :limit => 100
+      t.string :number, :limit => 100, foreign_key: true
       t.text :name, :limit => 1000
       t.text :adress, :limit => 500
 

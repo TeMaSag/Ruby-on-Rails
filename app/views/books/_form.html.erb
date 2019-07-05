@@ -14,43 +14,62 @@
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :Library %><br>
-    <%= form.select ( :Library, Book.all.map {|c| [c.author, c.id]}) %>
-  </p>
+  <div class="form-group row">
+  <%= form.label :library_id, class:"col-sm-2 col-form-label" do %> Библиотека <% end %>
+  <div class="col-sm-10">
+    <select class="form-control form-control-lg" <%= form.text_field :library_id %> >
+        <option>
+          </option>
+    </select>   
+  </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :TitleOfTheBook, class:"col-sm-2 col-form-label" do %> Название <% end %>
+      <div class="col-sm-10">
+        <%= form.text_field :TitleOfTheBook,class:"form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :author,class:"col-sm-2 col-form-label" do %> Автор <% end %> 
+      <div class="col-sm-10">
+        <%= form.text_field :author,class:"form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :cipher, class:"col-sm-2 col-form-label" do %> Шифр <% end %> 
+    <div class="col-sm-10">
+      <%= form.text_area :cipher, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :publishing_house, class:"col-sm-2 col-form-label" do %> Издательство <% end %> 
+    <div class="col-sm-10">
+      <%= form.text_area :publishing_house, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :price, class:"col-sm-2 col-form-label" do %> Цена <% end %>
+    <div class="col-sm-10">
+      <%= form.text_area :price, class:"form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :receipt_date, class:"col-sm-2 col-form-label" do %> Дата поступления <% end %> 
+    <div class="col-sm-10">
+      <%= form.text_area :receipt_date, class:"form-control" %>
+    </div>
+  </div>
 
   <p>
-    <%= form.label :TitleOfTheBook %><br>
-    <%= form.text_field :TitleOfTheBook %>
-  </p>
-
-  <p>
-    <%= form.label :author %><br>
-    <%= form.text_area :author %>
-  </p>
-
-  <p>
-    <%= form.label :cipher %><br>
-    <%= form.text_area :cipher %>
-  </p>
-
-  <p>
-    <%= form.label :publishing_house %><br>
-    <%= form.text_area :publishing_house %>
-  </p>
-
-  <p>
-    <%= form.label :price %><br>
-    <%= form.text_area :price %>
-  </p>
-
-  <p>
-    <%= form.label :receipt_date %><br>
-    <%= form.text_area :receipt_date %>
-  </p>
-
-  <p>
-    <%= form.submit %>
+    <%= form.submit class: 'btn-success btn-lg' do %> Обновить <% end %> 
   </p>
 
 <% end %>
+
+

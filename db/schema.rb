@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_07_04_181358) do
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.integer "Library"
+    t.bigint "library_id"
     t.text "TitleOfTheBook"
     t.text "author"
     t.string "cipher", limit: 100
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_04_181358) do
     t.date "receipt_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["library_id"], name: "index_books_on_library_id"
   end
 
   create_table "libraries", force: :cascade do |t|
@@ -35,4 +36,5 @@ ActiveRecord::Schema.define(version: 2019_07_04_181358) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "books", "libraries"
 end

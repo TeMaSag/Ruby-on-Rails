@@ -1,0 +1,26 @@
+<div id="topheader">
+  <nav class="navbar navbar-default header" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+              <li class="<%= 'active' if current_page?(root_path) %>"> 
+                <%= link_to root_path do  %> Главная
+                  <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(root_path) %>
+                <% end %>
+              </li>
+              <li class="<%= 'active' if current_page?(books_path) %>">
+                <%= link_to books_path do %>Книги
+                  <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(books_path) %>
+                <% end %>
+              </li>
+              <li class="<%= 'active' if current_page?(libraries_path) %>">  
+                <%= link_to libraries_path do %> Библиотеки
+                  <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(libraries_path) %>
+                <% end %>
+              </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
