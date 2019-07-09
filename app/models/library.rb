@@ -1,12 +1,10 @@
 class Library < ApplicationRecord
     # belongs_to  :book
-    validates :number, presence: true,
-                    length: { minimum: 1,
-                              maxsimum: 100 }
+    validates :number,
+                :format => { :with => /\A\d+(?:\.\d{0,0})?\z/ }, :numericality => {:greater_than => 0, :less_than => 99999999999999999999999999999999999999}
+                    
     validates :name, presence: true,
-                    length: { minimum: 1,     
-                              maxsimum: 1000 }
-    validates :name, presence: true,
-                    length: { minimum: 1,
-                              maxsimum: 500 }
+                    length: { maximum: 1000 }
+    validates :adress, presence: true,
+                    length: { maximum: 500 }
 end 

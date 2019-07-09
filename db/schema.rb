@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 2019_07_04_181358) do
     t.text "TitleOfTheBook"
     t.text "author"
     t.string "cipher", limit: 100
-    t.integer "publishing_house"
-    t.integer "price"
+    t.string "publishing_house"
+    t.integer "TheYearOfPublishing"
+    t.decimal "price", precision: 8, scale: 2
     t.date "receipt_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

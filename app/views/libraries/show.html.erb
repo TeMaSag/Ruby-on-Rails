@@ -1,19 +1,17 @@
 <p>
-  <strong>Number:</strong>
+  <strong>Номер:</strong>
   <%= @library.number %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Имя:</strong>
   <%= @library.name %>
 </p>
 
 <p>
-  <strong>Adress:</strong>
+  <strong>Адрес:</strong>
   <%= @library.adress %>
 </p>
 
-
-<%= link_to 'Edit', edit_library_path(@library) %> |
-<%= link_to 'Back', libraries_path %>
-<%= link_to 'Home', controller: 'home' %>
+<%= link_to 'Редактирование', edit_library_path(@library), class: "btn btn-info" %> |
+<%= link_to 'Назад', libraries_path, class:"btn btn-link" %>

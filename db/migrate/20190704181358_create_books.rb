@@ -5,8 +5,9 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.text :TitleOfTheBook, :limit => 2000, :null => true
       t.text :author, :limit => 1000
       t.string :cipher, :limit => 100, :null => true
-      t.integer :publishing_house
-      t.integer :price
+      t.string :publishing_house
+      t.integer :TheYearOfPublishing
+      t.decimal :price, :precision => 8, :scale => 2
       t.date :receipt_date
 
       t.timestamps

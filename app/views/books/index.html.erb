@@ -1,17 +1,16 @@
-<div class=front>
-  <h1>Список библиотек</h1>
-
+  <h1>Список книг</h1>
   <table class="table table-bordered table-dark">
-  <thead>
-    <tr>
-      <th cope="col">Библиотека</th>
-      <th cope="col">Название книги</th>
-      <th cope="col">Автор</th>
-      <th cope="col">Шифр</th>
-      <th cope="col">Издательство</th>
-      <th cope="col">Цена</th>
-      <th cope="col">Дата поступления</th>
-    </tr>
+    <thead>
+      <tr>
+        <th cope="col">Библиотека</th>
+        <th cope="col">Название книги</th>
+        <th cope="col">Автор</th>
+        <th cope="col">Шифр</th>
+        <th cope="col">Издательство</th>
+        <th cope="col">Год издания</th>
+        <th cope="col">Цена</th>
+        <th cope="col">Дата поступления</th>
+      </tr>
     </thead>
   <tbody>
     <% @books.each do |book| %>
@@ -21,6 +20,7 @@
         <td><%= book.author %></td>
         <td><%= book.cipher %></td>
         <td><%= book.publishing_house %></td>
+        <td><%= book.TheYearOfPublishing %></td>
         <td><%= book.price %></td>
         <td><%= book.receipt_date %></td>
         <td>
@@ -28,7 +28,7 @@
           <%= link_to 'Редактирование', edit_book_path(book), class: "btn btn-info btn-xs" %>
           <%= link_to 'X', book_path(book),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' }, 
+                  data: { confirm: 'Удалить' }, 
                   class: 'btn btn-danger btn-xs' %>
           </td>
       </tr>
@@ -38,4 +38,3 @@
   <%= link_to new_book_path, class:"btn btn-success" do %>
     <i class="glyphicon glyphicon-plus"></i> Новая книга
   <% end %>
-</div>

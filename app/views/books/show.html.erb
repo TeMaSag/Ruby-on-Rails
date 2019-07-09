@@ -23,14 +23,18 @@
     <%= @book.publishing_house %>
   </p>
   <p>
+    <strong>Год издания:</strong>
+    <%= @book.TheYearOfPublishing %>
+  </p>
+  <p>
     <strong>Цена:</strong>
     <%= @book.price %>
   </p>
   <p>
-    <strong>receipt_date:</strong>
+    <strong>Дата поступления:</strong>
     <%= @book.receipt_date %>
   </p>
 
   <%= link_to 'Редактирование', edit_book_path(@book), class: "btn btn-info btn-lg " %> |
-  <%= link_to 'Назад', books_path %>
+  <%= link_to 'Назад', books_path, class:"btn btn-link" %>
 </div>
