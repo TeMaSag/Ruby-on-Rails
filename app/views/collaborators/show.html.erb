@@ -1,0 +1,42 @@
+<p>
+  <strong>Библиотека:</strong>
+  <%= @collaborator.library_id %>
+</p>
+
+<p>
+  <strong>Фамилия:</strong>
+  <%= @collaborator.surname %>
+</p>
+
+<p>
+  <strong>Имя:</strong>
+  <%= @collaborator.name %>
+</p>
+
+<p>
+  <strong>Отчество:</strong>
+  <%= @collaborator.patronymic %>
+</p>
+
+<p>
+  <strong>Дата рождения:</strong>
+  <%= @collaborator.birthday %>
+</p>
+
+<p>
+  <strong>Дата принятия на работу:</strong>
+  <%= @collaborator.date_of_employment %>
+</p>
+
+<p>
+  <strong>Должность:</strong>
+  <%= @collaborator.post %>
+</p>
+
+<p>
+  <strong>Образование:</strong>
+  <%= @collaborator.education %>
+</p>
+
+<%= link_to 'Редактирование', edit_collaborator_path(@collaborator), class: "btn btn-info" %> |
+<%= link_to 'Назад', collaborators_path, class:"btn btn-link" %>

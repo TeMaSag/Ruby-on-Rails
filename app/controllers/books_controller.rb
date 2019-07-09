@@ -17,7 +17,6 @@ class BooksController < ApplicationController
         
         def create
             @book = Book.new(book_params)
-            # @library = Library.find(params[:library_id])
             if @book.save
             redirect_to @book
             else

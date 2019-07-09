@@ -1,0 +1,74 @@
+<%= form_with model: @subscriber, local: true do |form| %>
+
+  <% if @subscriber.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@subscriber.errors.count, "error") %> prohibited
+        this subscriber from being saved:
+      </h2>
+      <ul>
+        <% @subscriber.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="form-group row">
+    <%= form.label :subscriber_id, class:"col-sm-2 col-form-label" do %> Библиотека <% end %>
+    <div class="col-sm-10">
+      <select class="form-control form-control-lg" subscriber.all.each do |user| >
+          <option>
+  
+            </option>
+      </select>   
+    </div>
+  </div> 
+
+  <div class="form-group row">
+    <%= form.label :ticket_number, class:"col-sm-2 col-form-label" do %> Номер билета <% end %>
+    <div class="col-sm-10">
+      <%= form.text_field :ticket_number, class:"form-control" %> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :surname, class:"col-sm-2 col-form-label" do %> Фамилия <% end %>
+    <div class="col-sm-10">
+      <%= form.text_field :surname, class:"form-control" %> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :name, class:"col-sm-2 col-form-label" do %> Имя <% end %>
+      <div class="col-sm-10"> 
+        <%= form.text_area :name, class:"form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :patronymic, class:"col-sm-2 col-form-label" do %> Отчество <% end %>
+      <div class="col-sm-10">
+        <%= form.text_area :patronymic, class:"form-control" %>
+      </div>
+  </div>    
+
+  <div class="form-group row">
+    <%= form.label :adress, class:"col-sm-2 col-form-label" do %> Адрес <% end %>
+      <div class="col-sm-10"> 
+        <%= form.text_area :adress, class:"form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :phone, class:"col-sm-2 col-form-label" do %> Телефон <% end %>
+      <div class="col-sm-10">
+        <%= form.text_area :phone, class:"form-control" %>
+      </div>
+  </div>
+
+  <p>
+    <%= form.submit class: 'btn-success btn-lg' %>
+  </p>
+
+<% end %>

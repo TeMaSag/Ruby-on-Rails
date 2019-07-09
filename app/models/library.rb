@@ -1,5 +1,5 @@
 class Library < ApplicationRecord
-    # belongs_to  :book
+    has_many  :books, :foreign_key => :library_id
     validates :number,
                 :format => { :with => /\A\d+(?:\.\d{0,0})?\z/ }, :numericality => {:greater_than => 0, :less_than => 99999999999999999999999999999999999999}
                     

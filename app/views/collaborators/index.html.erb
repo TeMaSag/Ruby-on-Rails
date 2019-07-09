@@ -1,0 +1,39 @@
+<h1>Список книг</h1>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Библиотека</th>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Отчество</th>
+      <th>Дата рождения</th>
+      <th>Дата принятия на работу</th>
+      <th>Должность</th>
+      <th>Образование</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @collaborators.each do |collaborator| %>
+      <tr>
+        <td><%= collaborator.library_id %></td>
+        <td><%= collaborator.surname %></td>
+        <td><%= collaborator.name %></td>
+        <td><%= collaborator.patronymic %></td>
+        <td><%= collaborator.birthday %></td>        
+        <td><%= collaborator.date_of_employment %></td>
+        <td><%= collaborator.post %></td>
+        <td><%= collaborator.education %></td>
+        <td><%= link_to 'Просмотр', collaborator_path(collaborator), class: "btn btn-primary btn-xs" %>
+          <%= link_to 'Редактирование', edit_collaborator_path(collaborator), class: "btn btn-info btn-xs" %>
+          <%= link_to 'X', collaborator_path(collaborator),
+                method: :delete,
+                data: { confirm: 'Удалить?' },
+                class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <%= link_to new_collaborator_path, class:"btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus"></i> Новая библиотека
+  <% end %>

@@ -1,0 +1,82 @@
+<%= form_with model: @collaborator, local: true do |form| %>
+
+  <% if @collaborator.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@collaborator.errors.count, "error") %> prohibited
+        this collaborator from being saved:
+      </h2>
+      <ul>
+        <% @collaborator.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="form-group row">
+    <%= form.label :collaborator_id, class:"col-sm-2 col-form-label" do %> Библиотека <% end %>
+    <div class="col-sm-10">
+      <select class="form-control form-control-lg" collaborator.all.each do |user| >
+          <option>
+  
+            </option>
+      </select>   
+    </div>
+  </div> 
+
+
+  <div class="form-group row">
+    <%= form.label :surname, class:"col-sm-2 col-form-label" do %> Фамилия <% end %>
+    <div class="col-sm-10">
+      <%= form.text_field :surname, class:"form-control" %> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :name, class:"col-sm-2 col-form-label" do %> Имя <% end %>
+      <div class="col-sm-10"> 
+        <%= form.text_area :name, class:"form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :patronymic, class:"col-sm-2 col-form-label" do %> Отчество <% end %>
+      <div class="col-sm-10">
+        <%= form.text_area :patronymic, class:"form-control" %>
+      </div>
+  </div>
+
+    <div class="form-group row">
+    <%= form.label :birthday, class:"col-sm-2 col-form-label" do %> Дата рождения <% end %>
+    <div class="col-sm-10">
+      <%= form.text_field :birthday, class:"form-control" %> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :date_of_employment, class:"col-sm-2 col-form-label" do %> Дата принятия на работу <% end %>
+      <div class="col-sm-10"> 
+        <%= form.text_area :date_of_employment, class:"form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :post, class:"col-sm-2 col-form-label" do %> Должность <% end %>
+      <div class="col-sm-10">
+        <%= form.text_area :post, class:"form-control" %>
+      </div>
+  </div>
+
+   <div class="form-group row">
+    <%= form.label :education, class:"col-sm-2 col-form-label" do %> Образование <% end %>
+      <div class="col-sm-10">
+        <%= form.text_area :education, class:"form-control" %>
+      </div>
+  </div>
+
+  <p>
+    <%= form.submit class: 'btn-success btn-lg' %>
+  </p>
+
+<% end %>

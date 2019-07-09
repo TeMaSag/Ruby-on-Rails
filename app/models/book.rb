@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-    # has_many  :libraries
+    belongs_to  :library
     validates :TitleOfTheBook, presence: true,
                 length: { maximum: 2000 }
     validates :author, presence: true,

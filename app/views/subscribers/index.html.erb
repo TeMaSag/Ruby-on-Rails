@@ -1,0 +1,37 @@
+<h1>Список книг</h1>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Библиотека</th>
+      <th>Номер билета</th>
+      <th>Фамилия</th>
+      <th>Имя</th>
+      <th>Отчество</th>
+      <th>Адрес</th>
+      <th>Телефон</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscribers.each do |subscriber| %>
+      <tr>
+        <td><%= subscriber.library_id %></td>
+        <td><%= subscriber.ticket_number %></td>
+        <td><%= subscriber.surname %></td>
+        <td><%= subscriber.name %></td>
+        <td><%= subscriber.patronymic %></td>                
+        <td><%= subscriber.adress %></td>
+        <td><%= subscriber.phone %></td>
+        <td><%= link_to 'Просмотр', subscriber_path(subscriber), class: "btn btn-primary btn-xs" %>
+          <%= link_to 'Редактирование', edit_subscriber_path(subscriber), class: "btn btn-info btn-xs" %>
+          <%= link_to 'X', subscriber_path(subscriber),
+                method: :delete,
+                data: { confirm: 'Удалить?' },
+                class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <%= link_to new_subscriber_path, class:"btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus"></i> Новый абонент
+  <% end %>

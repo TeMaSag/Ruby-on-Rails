@@ -1,0 +1,22 @@
+<p>
+  <strong>Книга:</strong>
+  <%= @delivery.book_id %>
+</p>
+
+<p>
+  <strong>Абонент:</strong>
+  <%= @delivery.subscriber %>
+</p>
+
+<p>
+  <strong>Дата выдачи:</strong>
+  <%= @delivery.date_delivery %>
+</p>
+
+<p>
+  <strong>Дата возврата:</strong>
+  <%= @delivery.date_return %>
+</p>
+
+<%= link_to 'Редактирование', edit_delivery_path(@delivery), class: "btn btn-info" %> |
+<%= link_to 'Назад', deliveries_path, class:"btn btn-link" %>

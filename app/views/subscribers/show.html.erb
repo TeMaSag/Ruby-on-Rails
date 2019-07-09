@@ -1,0 +1,39 @@
+<p>
+  <strong>Библиотека:</strong>
+  <%= @subscriber.library_id %>
+</p>
+
+<p>
+  <strong>Номер библиотеки:</strong>
+  <%= @subscriber.ticket_number %>
+</p>
+
+<p>
+  <strong>Фамилия:</strong>
+  <%= @subscriber.surname %>
+</p>
+
+<p>
+  <strong>Имя:</strong>
+  <%= @subscriber.name %>
+</p>
+
+<p>
+  <strong>Отчество:</strong>
+  <%= @subscriber.patronymic %>
+</p>
+
+
+
+<p>
+  <strong>Адрес:</strong>
+  <%= @subscriber.adress %>
+</p>
+
+<p>
+  <strong>Телефон:</strong>
+  <%= @subscriber.phone %>
+</p>
+
+<%= link_to 'Редактирование', edit_subscriber_path(@subscriber), class: "btn btn-info" %> |
+<%= link_to 'Назад', subscribers_path, class:"btn btn-link" %>

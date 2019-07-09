@@ -1,0 +1,31 @@
+<h1>Список книг</h1>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Книга</th>
+      <th>Абонент</th>
+      <th>Дата выдачи</th>
+      <th>Дата возврата</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.book_id %></td>
+        <td><%= delivery.subscriber_id %></td>
+        <td><%= delivery.date_delivery %></td>
+         <td><%= delivery.date_return%></td>
+        <td><%= link_to 'Просмотр', delivery_path(delivery), class: "btn btn-primary btn-xs" %>
+          <%= link_to 'Редактирование', edit_delivery_path(delivery), class: "btn btn-info btn-xs" %>
+          <%= link_to 'X', delivery_path(delivery),
+                method: :delete,
+                data: { confirm: 'Удалить?' },
+                class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <%= link_to new_delivery_path, class:"btn btn-success" do %>
+    <i class="glyphicon glyphicon-plus"></i> Новая библиотека
+  <% end %>

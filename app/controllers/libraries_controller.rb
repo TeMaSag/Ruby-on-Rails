@@ -17,7 +17,9 @@ class LibrariesController < ApplicationController
     
     def create
         @library = Library.new(library_params)
-    
+        
+        # @library = Library.find(params[:article_id])
+        @book = @library.books.create(comment_params)
         if @library.save
         redirect_to @library
         else
