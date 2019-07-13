@@ -1,7 +1,7 @@
 class CreateBooks < ActiveRecord::Migration[5.2]
   def change
     create_table :books do |t|
-      t.references :library, foreign_key: true
+      t.references :library, index: true, foreign_key: true
       t.text :TitleOfTheBook, :limit => 2000, :null => true
       t.text :author, :limit => 1000
       t.string :cipher, :limit => 100, :null => true
@@ -12,5 +12,6 @@ class CreateBooks < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :microposts, [:user_id, :created_at]
   end
 end

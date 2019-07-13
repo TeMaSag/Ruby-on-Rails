@@ -1,5 +1,9 @@
 class Book < ApplicationRecord
     belongs_to  :library
+    has_one :delivery
+    validates :library_id, presence: true
+    # has_many :deliveries
+    # has_many :subscribers, through: :deliveries
     validates :TitleOfTheBook, presence: true,
                 length: { maximum: 2000 }
     validates :author, presence: true,

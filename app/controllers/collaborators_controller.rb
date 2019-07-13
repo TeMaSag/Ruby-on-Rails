@@ -8,14 +8,17 @@ class CollaboratorsController < ApplicationController
         end
         
         def new
+            @libraries = Library.all
             @collaborator = Collaborator.new
         end
         
         def edit
+            @libraries = Library.all
             @collaborator = Collaborator.find(params[:id])
         end
         
         def create
+            @libraries = Library.all
             @collaborator = Collaborator.new(collaborator_params)
             if @collaborator.save
             redirect_to @collaborator

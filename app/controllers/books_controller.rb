@@ -8,15 +8,19 @@ class BooksController < ApplicationController
         end
         
         def new
+            # @library =Library.all
+            @libraries = Library.all
             @book = Book.new
         end
         
         def edit
+            @libraries = Library.all
             @book = Book.find(params[:id])
         end
         
-        def create
-            @book = Book.new(book_params)
+        def create            
+            @libraries = Library.all
+            @book = Book.create(book_params)          
             if @book.save
             redirect_to @book
             else
@@ -43,6 +47,6 @@ class BooksController < ApplicationController
         
         private
             def book_params
-            params.require(:book).permit( :library_id, :TitleOfTheBook, :author, :cipher, :publishing_house, :TheYearOfPublishing, :price,:receipt_date)
+                params.require(:book).permit( :library_id, :TitleOfTheBook, :author, :cipher, :publishing_house, :TheYearOfPublishing, :price,:receipt_date)
             end
 end

@@ -8,14 +8,17 @@ class SubscribersController < ApplicationController
         end
         
         def new
+            @libraries = Library.all
             @subscriber = Subscriber.new
         end
         
         def edit
+            @libraries = Library.all
             @subscriber = Subscriber.find(params[:id])
         end
         
         def create
+            @libraries = Library.all
             @subscriber = Subscriber.new(subscriber_params)
             if @subscriber.save
             redirect_to @subscriber
