@@ -8,17 +8,14 @@ class SubscribersController < ApplicationController
         end
         
         def new
-            @libraries = Library.all
             @subscriber = Subscriber.new
         end
         
         def edit
-            @libraries = Library.all
             @subscriber = Subscriber.find(params[:id])
         end
         
         def create
-            @libraries = Library.all
             @subscriber = Subscriber.new(subscriber_params)
             if @subscriber.save
             redirect_to @subscriber
@@ -45,6 +42,6 @@ class SubscribersController < ApplicationController
         
         private
             def subscriber_params
-             params.require(:subscriber).permit( :library_id, :ticket_number, :surname, :name, :patronymic, :adress, :phone)
+             params.require(:subscriber).permit( :library_id, :ticket, :surname, :name, :patronymic, :adress, :phone)
             end
 end

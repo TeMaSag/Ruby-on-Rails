@@ -8,17 +8,14 @@ class CollaboratorsController < ApplicationController
         end
         
         def new
-            @libraries = Library.all
             @collaborator = Collaborator.new
         end
         
         def edit
-            @libraries = Library.all
             @collaborator = Collaborator.find(params[:id])
         end
         
         def create
-            @libraries = Library.all
             @collaborator = Collaborator.new(collaborator_params)
             if @collaborator.save
             redirect_to @collaborator
@@ -28,8 +25,7 @@ class CollaboratorsController < ApplicationController
         end
         
         def update
-            @collaborator = Collaborator.find(params[:id])
-        
+            @collaborator = Collaborator.find(params[:id])        
             if @collaborator.update(collaborator_params)
             redirect_to @collaborator
             else

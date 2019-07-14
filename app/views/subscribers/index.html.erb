@@ -1,7 +1,7 @@
 <h1>Список книг</h1>
-<table class="table table-bordered table-dark">
+<table class="table table-bordered table-dark hidden-line">
   <thead>
-    <tr>
+    <tr class="line-white">
       <th>Библиотека</th>
       <th>Номер билета</th>
       <th>Фамилия</th>
@@ -14,14 +14,17 @@
   <tbody>
     <% @subscribers.each do |subscriber| %>
       <tr>
-        <td><%= subscriber.library_id %></td>
-        <td><%= subscriber.ticket_number %></td>
+        <td>
+          <%= Library.all.find(subscriber.library_id).number %> 
+          <%= Library.all.find(subscriber.library_id).name %>
+        </td>
+        <td><%= subscriber.ticket %></td>
         <td><%= subscriber.surname %></td>
         <td><%= subscriber.name %></td>
         <td><%= subscriber.patronymic %></td>                
         <td><%= subscriber.adress %></td>
         <td><%= subscriber.phone %></td>
-        <td><%= link_to 'Просмотр', subscriber_path(subscriber), class: "btn btn-primary btn-xs" %>
+        <td nowrap style="border: 0px"><%= link_to 'Просмотр', subscriber_path(subscriber), class: "btn btn-primary btn-xs" %>
           <%= link_to 'Редактирование', edit_subscriber_path(subscriber), class: "btn btn-info btn-xs" %>
           <%= link_to 'X', subscriber_path(subscriber),
                 method: :delete,

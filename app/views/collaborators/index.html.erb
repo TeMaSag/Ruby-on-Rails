@@ -1,7 +1,7 @@
 <h1>Список книг</h1>
-<table class="table table-bordered table-dark">
+<table class="table table-bordered table-dark hidden-line">
   <thead>
-    <tr>
+    <tr class="line-white">
       <th>Библиотека</th>
       <th>Фамилия</th>
       <th>Имя</th>
@@ -15,7 +15,10 @@
   <tbody>
     <% @collaborators.each do |collaborator| %>
       <tr>
-        <td><%= collaborator.library_id %></td>
+        <td>
+          <%= Library.all.find(collaborator.library_id).number %> 
+          <%= Library.all.find(collaborator.library_id).name %>
+        </td>
         <td><%= collaborator.surname %></td>
         <td><%= collaborator.name %></td>
         <td><%= collaborator.patronymic %></td>
@@ -23,7 +26,7 @@
         <td><%= collaborator.date_of_employment %></td>
         <td><%= collaborator.post %></td>
         <td><%= collaborator.education %></td>
-        <td><%= link_to 'Просмотр', collaborator_path(collaborator), class: "btn btn-primary btn-xs" %>
+        <td nowrap style="border: 0px"><%= link_to 'Просмотр', collaborator_path(collaborator), class: "btn btn-primary btn-xs" %>
           <%= link_to 'Редактирование', edit_collaborator_path(collaborator), class: "btn btn-info btn-xs" %>
           <%= link_to 'X', collaborator_path(collaborator),
                 method: :delete,

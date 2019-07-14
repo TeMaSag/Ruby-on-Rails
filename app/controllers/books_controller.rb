@@ -9,7 +9,6 @@ class BooksController < ApplicationController
         
         def new
             # @library =Library.all
-            @libraries = Library.all
             @book = Book.new
         end
         
@@ -19,7 +18,6 @@ class BooksController < ApplicationController
         end
         
         def create            
-            @libraries = Library.all
             @book = Book.create(book_params)          
             if @book.save
             redirect_to @book

@@ -1,7 +1,7 @@
 <h1>Список книг</h1>
-<table class="table table-bordered table-dark">
+<table class="table table-bordered table-dark hidden-line">
   <thead>
-    <tr>
+    <tr class="line-white">
       <th>Книга</th>
       <th>Абонент</th>
       <th>Дата выдачи</th>
@@ -11,11 +11,19 @@
   <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
-        <td><%= delivery.book_id %></td>
-        <td><%= delivery.subscriber_id %></td>
+        <td>
+          <% Book.all.find(delivery.book_id) do |book|%>
+            <%= book.TitleOfTheBook+', '+book.author%>
+          <% end %>
+        </td>
+        <td>
+            <% Subscriber.all.find(delivery.subscriber_id) do |subscriber|%>
+              <%= subscriber.surname+' '+subscriber.name+' '+subscriber.patronymic%>
+            <% end %>
+        </td>
         <td><%= delivery.date_delivery %></td>
          <td><%= delivery.date_return%></td>
-        <td><%= link_to 'Просмотр', delivery_path(delivery), class: "btn btn-primary btn-xs" %>
+        <td nowrap style="border: 0px"><%= link_to 'Просмотр', delivery_path(delivery), class: "btn btn-primary btn-xs" %>
           <%= link_to 'Редактирование', edit_delivery_path(delivery), class: "btn btn-info btn-xs" %>
           <%= link_to 'X', delivery_path(delivery),
                 method: :delete,

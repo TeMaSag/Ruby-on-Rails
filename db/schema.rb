@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_184127) do
+ActiveRecord::Schema.define(version: 2019_07_09_185544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_07_12_184127) do
     t.string "cipher", limit: 100
     t.string "publishing_house"
     t.integer "TheYearOfPublishing"
-    t.decimal "price", precision: 8, scale: 2
+    t.decimal "price", precision: 10, scale: 2
     t.date "receipt_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,15 +41,6 @@ ActiveRecord::Schema.define(version: 2019_07_12_184127) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_collaborators_on_library_id"
-  end
-
-  create_table "courses", force: :cascade do |t|
-    t.bigint "semester_id"
-    t.string "name"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["semester_id"], name: "index_courses_on_semester_id"
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -71,22 +62,14 @@ ActiveRecord::Schema.define(version: 2019_07_12_184127) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "semesters", force: :cascade do |t|
-    t.string "name"
-    t.string "fullname"
-    t.boolean "current"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "subscribers", force: :cascade do |t|
     t.bigint "library_id"
-    t.integer "ticket_number"
+    t.integer "ticket"
     t.string "surname", limit: 100
     t.string "name", limit: 100
     t.string "patronymic", limit: 100
     t.text "adress"
-    t.integer "phone"
+    t.bigint "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_subscribers_on_library_id"
@@ -94,7 +77,6 @@ ActiveRecord::Schema.define(version: 2019_07_12_184127) do
 
   add_foreign_key "books", "libraries"
   add_foreign_key "collaborators", "libraries"
-  add_foreign_key "courses", "semesters"
   add_foreign_key "deliveries", "books"
   add_foreign_key "deliveries", "subscribers"
   add_foreign_key "subscribers", "libraries"

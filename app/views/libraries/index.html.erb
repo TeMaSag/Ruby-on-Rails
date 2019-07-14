@@ -1,7 +1,7 @@
 <h1>Список книг</h1>
-<table class="table table-bordered table-dark">
+<table class="table table-bordered table-dark hidden-line">
   <thead>
-    <tr>
+    <tr class="line-white">
       <th>Номер</th>
       <th>Имя</th>
       <th>Адрес</th>
@@ -13,7 +13,7 @@
         <td><%= library.number %></td>
         <td><%= library.name %></td>
         <td><%= library.adress %></td>
-        <td><%= link_to 'Просмотр', library_path(library), class: "btn btn-primary btn-xs" %>
+        <td nowrap style="border: 0px"><%= link_to 'Просмотр', library_path(library), class: "btn btn-primary btn-xs" %>
           <%= link_to 'Редактирование', edit_library_path(library), class: "btn btn-info btn-xs" %>
           <%= link_to 'X', library_path(library),
                 method: :delete,

@@ -7,11 +7,10 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :cipher, :limit => 100, :null => true
       t.string :publishing_house
       t.integer :TheYearOfPublishing
-      t.decimal :price, :precision => 8, :scale => 2
+      t.decimal :price, :precision => 10, :scale => 2
       t.date :receipt_date
 
       t.timestamps
     end
-    add_index :microposts, [:user_id, :created_at]
   end
 end

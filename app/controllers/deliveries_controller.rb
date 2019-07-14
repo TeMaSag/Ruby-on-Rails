@@ -17,9 +17,6 @@ class DeliveriesController < ApplicationController
         
         def create
             @delivery = Delivery.new(delivery_params)
-            
-            # @delivery = Delivery.find(params[:article_id])
-            @book = @delivery.books.create(comment_params)
             if @delivery.save
             redirect_to @delivery
             else
