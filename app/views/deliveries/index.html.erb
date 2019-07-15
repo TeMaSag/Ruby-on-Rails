@@ -2,6 +2,7 @@
 <table class="table table-bordered table-dark hidden-line">
   <thead>
     <tr class="line-white">
+    <th>ID</th>
       <th>Книга</th>
       <th>Абонент</th>
       <th>Дата выдачи</th>
@@ -11,15 +12,17 @@
   <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
+      <td><%= delivery.id %></td>
         <td>
-          <% Book.all.find(delivery.book_id) do |book|%>
-            <%= book.TitleOfTheBook+', '+book.author%>
-          <% end %>
+           <%= Book.all.find(delivery.book_id).TitleOfTheBook %>, 
+          <%= Book.all.find(delivery.book_id).author %>
+ 
+      
         </td>
         <td>
-            <% Subscriber.all.find(delivery.subscriber_id) do |subscriber|%>
-              <%= subscriber.surname+' '+subscriber.name+' '+subscriber.patronymic%>
-            <% end %>
+          <%= Subscriber.all.find(delivery.subscriber_id).surname %> 
+            <%= Subscriber.all.find(delivery.subscriber_id).name %>, билет:
+            <%= Subscriber.all.find(delivery.subscriber_id).ticket %>
         </td>
         <td><%= delivery.date_delivery %></td>
          <td><%= delivery.date_return%></td>
@@ -37,3 +40,4 @@
   <%= link_to new_delivery_path, class:"btn btn-success" do %>
     <i class="glyphicon glyphicon-plus"></i> Новая библиотека
   <% end %>
+ 

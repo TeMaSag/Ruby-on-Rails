@@ -17,12 +17,28 @@
     </thead>
   <tbody>
    <% Library.find_each do |library| %>
+   <%# <%Delivery.all.each do |delivery|%> 
+   <%# <%Book.includes(:library,:deliveries).each do |book|%>   
+
+   <%# <% Library.includes(delivery: :book_id.find(1).each do |librar|%> 
         <tr>
             <td><%= library.name %></td>
-            <% Book.where("library_id = '1'") %>
-            <td><%= Book.count%> </td>
+
+  
         </tr>
-        <% end %>
-         
+
+     <% end %>
     </tbody>
   </table>
+      
+<% books=Book.joins(:library, :deliveries) %>
+<%=books.count%>
+
+
+    <%= idBooks=books.joins(:deliveries).group(:book_id).count%>
+
+
+<%=Library.includes(:book, :deliveries).where(library:{id: 1}) do |s|%>
+<%=s.library.id%>
+
+<% end %>

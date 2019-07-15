@@ -2,6 +2,7 @@
   <table class="table table-bordered table-dark hidden-line " >
     <thead>
       <tr class="line-white">
+      <th cope="col">ID</th>
         <th cope="col">Библиотека</th>
         <th cope="col">Название книги</th>
         <th cope="col">Автор</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @books.find_each do |book| %>
       <tr>
+      <td><%= book.id%></td>
         <td>
             <%= Library.all.find(book.library_id).number %> 
             <%= Library.all.find(book.library_id).name %>
@@ -40,4 +42,6 @@
   </table>
   <%= link_to new_book_path, class:"btn btn-success" do %>
     <i class="glyphicon glyphicon-plus"></i> Новая книга
-  <% end %>
+<% end %>
+   
+            

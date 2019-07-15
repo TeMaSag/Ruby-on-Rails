@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
     belongs_to  :library
-    has_one :delivery
+    has_many :deliveries, dependent: :delete_all
     validates :library_id, presence: true
     # has_many :deliveries
     # has_many :subscribers, through: :deliveries

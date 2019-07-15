@@ -8,12 +8,10 @@ class BooksController < ApplicationController
         end
         
         def new
-            # @library =Library.all
             @book = Book.new
         end
         
         def edit
-            @libraries = Library.all
             @book = Book.find(params[:id])
         end
         

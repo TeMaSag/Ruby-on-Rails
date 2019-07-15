@@ -1,5 +1,5 @@
 class Library < ApplicationRecord
-    has_many  :books
+    has_many  :books, dependent: :delete_all
     validates :number,presence: true,
                     length: { maximum: 100 } 
                     

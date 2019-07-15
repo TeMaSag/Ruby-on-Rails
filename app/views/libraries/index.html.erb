@@ -2,6 +2,7 @@
 <table class="table table-bordered table-dark hidden-line">
   <thead>
     <tr class="line-white">
+    <th>ID</th>
       <th>Номер</th>
       <th>Имя</th>
       <th>Адрес</th>
@@ -10,6 +11,7 @@
   <tbody>
     <% @libraries.each do |library| %>
       <tr>
+      <td><%= library.id %></td>
         <td><%= library.number %></td>
         <td><%= library.name %></td>
         <td><%= library.adress %></td>
