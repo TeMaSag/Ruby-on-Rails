@@ -22,23 +22,12 @@
 
    <%# <% Library.includes(delivery: :book_id.find(1).each do |librar|%> 
         <tr>
-            <td><%= library.name %></td>
-
-  
+            <td>
+              <%= library.number %>
+              <%= library.name %>            
+            </td>  
         </tr>
 
      <% end %>
     </tbody>
   </table>
-      
-<% books=Book.joins(:library, :deliveries) %>
-<%=books.count%>
-
-
-    <%= idBooks=books.joins(:deliveries).group(:book_id).count%>
-
-
-<%=Library.includes(:book, :deliveries).where(library:{id: 1}) do |s|%>
-<%=s.library.id%>
-
-<% end %>
